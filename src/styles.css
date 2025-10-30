@@ -1,0 +1,336 @@
+/* 🌐 Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ✅ Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.property-section {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🧭 Header */
+.header {
+  background-color: #1d15c1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffe082;
+}
+
+/* 🧰 Sidebar */
+.sidebar {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.filter-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.filter-group input:focus {
+  border-color: #007bff;
+}
+
+/* 🟩 View Toggle */
+.view-toggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.view-toggle button {
+  border: none;
+  background-color: #e9ecef;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.view-toggle button.active,
+.view-toggle button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* 🏠 Property Cards */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.property-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.property-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+}
+
+.property-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-details {
+  padding: 15px;
+}
+
+.property-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.property-details p {
+  margin: 4px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.property-details .price {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+/* 🧱 List View Card */
+.list-view .property-card {
+  flex-direction: row;
+  height: 180px;
+}
+
+.list-view .property-card img {
+  width: 250px;
+  height: 100%;
+}
+
+.list-view .property-details {
+  flex: 1;
+  padding: 20px;
+}
+
+/* 💬 Info and Hover Effects */
+.info {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.property-card:hover .info {
+  color: #007bff;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .toggle-btn {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    z-index: 1100;
+  }
+}
+
+@media (max-width: 576px) {
+  .property-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+
+
+
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* === Sidebar Toggle Button === */
+.toggle-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  background: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.2s ease-in;
+}
+
+.toggle-btn:hover {
+  background: #005fcc;
+}
+
+/* === Mobile Sidebar Behavior === */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+}
